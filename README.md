@@ -82,8 +82,10 @@ Inicio → Generar número → Pedir intento → Comparar → Mayor/Menor → ¿
 ---
 
 ## Comentarios finales
-Este proyecto demuestra la aplicación práctica de estructuras condicionales, bucles y validaciones de datos en Python.  
-Fue elaborado como parte del curso de **Introducción a la Programación** bajo el conocimiento de la **Ing. LILIAN MARLENE AMAN RAMOS**.
+Este proyecto demuestra cómo la programación puede aplicarse a tareas lúdicas y didácticas, logrando que el aprendizaje sea más interactivo y la aplicación práctica de estructuras condicionales, bucles y validaciones de datos en Python.
+El sistema cumple con los requisitos de entrada, proceso y salida, y refuerza la comprensión de estructuras de control.
+Fue elaborado como parte del curso de **Introducción a la Programación** bajo el conocimiento de la **Ing. LILIAN MARLENE AMAN RAMOS**.  
+
 
 ---
 
