@@ -1,41 +1,72 @@
 # Juego: Adivina el Número
 # Autor: Matthew Narvaez
-# Desarrollado para el Aprendizaje Autónomo 2
+# Desarrollado para la Evaluación en Contacto con el Docente
 # Lenguaje: Python
 # Herramienta: Visual Studio Code
 
-import random  # Importamos la librería para generar números aleatorios
+import random
+import time
 
-print("Bienvenido al juego: Adivina el Número")
-print("Estoy pensando en un número entre 1 y 100...")
+def adivina_numero():
+    print("╔════════════════════════════════╗")
+    print("║     🎯  ADIVINA EL NÚMERO 🎯     ║")
+    print("╚════════════════════════════════╝\n")
 
-# Generamos el número aleatorio que el jugador debe adivinar
-numero_secreto = random.randint(1, 100)
+    print("Selecciona la dificultad:")
+    print("1. Fácil (1 - 10)")
+    print("2. Medio (1 - 50)")
+    print("3. Difícil (1 - 100)")
 
-# Inicializamos variables
-intentos = 0
-adivinado = False
+    while True:
+        try:
+            nivel = int(input("Elige (1-3): "))
+            if nivel in [1, 2, 3]:
+                break
+            else:
+                print("Por favor, elige un número del 1 al 3.")
+        except ValueError:
+            print("Ingresa un número válido.")
 
-# Bucle principal del juego: se repite hasta que el usuario adivine
-while not adivinado:
-    try:
-        # Solicitamos al usuario que ingrese un número
-        entrada = input(" Ingresa tu número: ")
-        numero = int(entrada)  # Convertimos la entrada en entero
-        intentos += 1  # Sumamos un intento
+    if nivel == 1:
+        limite = 10
+        intentos_max = 5
+    elif nivel == 2:
+        limite = 50
+        intentos_max = 7
+    else:
+        limite = 100
+        intentos_max = 10
 
-        # Verificamos si el número es menor, mayor o igual al secreto
-        if numero < numero_secreto:
-            print("🔻 Muy bajo, intenta nuevamente.\n")
-        elif numero > numero_secreto:
-            print("🔺 Muy alto, intenta nuevamente.\n")
-        else:
-            print(f" ¡Felicidades! Adivinaste el número {numero_secreto} en {intentos} intentos.")
-            adivinado = True  # Salimos del bucle
+    numero_secreto = random.randint(1, limite)
+    intentos = 0
 
-    except ValueError:
-        # Capturamos errores si el usuario ingresa algo que no sea número
-        print(" Error: Debes ingresar un número entero válido.\n")
+    print("\nEstoy pensando en un número...")
+    time.sleep(1)
 
-# Mensaje final
-print(" Gracias por jugar. ¡Hasta la próxima!")
+    while intentos < intentos_max:
+        try:
+            adivinanza = int(input(f"\nIntento {intentos + 1}/{intentos_max}: "))
+            intentos += 1
+
+            if adivinanza < numero_secreto:
+                print("🔻 Demasiado bajo.")
+            elif adivinanza > numero_secreto:
+                print("🔺 Demasiado alto.")
+            else:
+                print(f"\n🎉 ¡Lo lograste en {intentos} intentos! 🎉")
+                break
+        except ValueError:
+            print("Eso no es un número válido.")
+
+    else:
+        print(f"\n💀 Te quedaste sin intentos. El número era {numero_secreto}.")
+
+    jugar_nuevamente = input("\n¿Quieres jugar otra vez? (si/no): ").lower()
+    if jugar_nuevamente == "si":
+        adivina_numero()
+    else:
+        print("\nGracias por jugar  ¡Hasta la próxima!\n")
+
+if __name__ == "__main__":
+    adivina_numero()
+
