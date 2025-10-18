@@ -71,7 +71,7 @@ Intento 3/7: 32
 ¡Lo lograste en 3 intentos! 
 
 
-## Fecha de entrega
+## Fecha de inicio
 **16 de octubre de 2025**
 
 ## Diagrama de flujo  
